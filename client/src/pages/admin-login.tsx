@@ -1,88 +1,76 @@
-import React, { useState } from "react";
-import { useLocation } from "wouter";
-import { Button } from "@/components/ui/button";
+import React, { useState } from 'react';
+import { useAuth } from '@/hooks/use-auth';
+import { useLocation } from 'wouter';
+import { Button } from '@/components/ui/button';
+import { useToast } from '@/hooks/use-toast';
 
-export default function AdminLoginPage() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
-  const [, navigate] = useLocation();
+export default function AdminLogin() {
+  const [formData, setFormData] = useState({
+    username: '',
+    password: ''
+  });
+  const { login } = useAuth();
+  const [, setLocation] = useLocation();
+  const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setError("");
     
-    try {
-      const res = await fetch("/api/login", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ username: email, password })
-      });
-      
-      // Check if response is ok before trying to parse JSON
-      if (!res.ok) {
-        const errorText = await res.text();
-        try {
-          const errorData = JSON.parse(errorText);
-          setError(errorData.message || "Login failed");
-        } catch {
-          setError(`Login failed: ${res.status} ${res.statusText}`);
-        }
-        return;
-      }
-      
-      const data = await res.json();
-      
-      if (data.success && data.user) {
-        // Check if user is admin or superadmin
-        if (data.user.isAdmin || data.user.role === 'admin' || data.user.role === 'superadmin') {
-          localStorage.setItem("admin", JSON.stringify(data.user));
-          
-          // Redirect based on role
-          if (data.user.role === 'superadmin') {
-            navigate("/superadmin");
-          } else {
-            navigate("/admin");
-          }
-        } else {
-          setError("Access denied. Admin privileges required.");
-        }
-      } else {
-        setError(data.message || "Login failed");
-      }
-    } catch (err) {
-      console.error("Login error:", err);
-      setError("Network error. Please try again.");
+    const success = await login(formData.username, formData.password);
+    if (success) {
+      toast({ title: "Admin login successful!" });
+      setLocation('/admin-dashboard');
+    } else {
+      toast({ title: "Login failed", description: "Invalid admin credentials", variant: "destructive" });
     }
   };
 
   return (
-    <div className="flex flex-col items-center justify-center min-h-screen bg-gray-100">
-      <div className="bg-white p-8 rounded shadow-md w-full max-w-sm">
-        <h1 className="text-2xl font-bold mb-4 text-center">Admin Login</h1>
-        {error && <div className="text-red-500 mb-4 text-center">{error}</div>}
-        <form onSubmit={handleSubmit} className="space-y-4">
-          <input
-            className="w-full border p-2 rounded"
-            type="email"
-            placeholder="Email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-          />
-          <input
-            className="w-full border p-2 rounded"
-            type="password"
-            placeholder="Password"
-            value={password}
-            onChange={e => setPassword(e.target.value)}
-            required
-          />
-          <Button className="w-full" type="submit">Login</Button>
+    <div className="min-h-screen flex items-center justify-center bg-gray-50">
+      <div className="max-w-md w-full space-y-8 p-8 bg-white rounded-lg shadow-md">
+        <div>
+          <h2 className="text-3xl font-bold text-center text-red-600">
+            Admin Login
+          </h2>
+        </div>
+        
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Admin Email</label>
+            <input
+              type="email"
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+              value={formData.username}
+              onChange={(e) => setFormData({...formData, username: e.target.value})}
+            />
+          </div>
+          
+          <div>
+            <label className="block text-sm font-medium text-gray-700">Password</label>
+            <input
+              type="password"
+              required
+              className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md"
+              value={formData.password}
+              onChange={(e) => setFormData({...formData, password: e.target.value})}
+            />
+          </div>
+          
+          <Button type="submit" className="w-full bg-red-600 hover:bg-red-700">
+            Admin Sign In
+          </Button>
         </form>
-        <p className="mt-4 text-xs text-gray-500 text-center">
-          (This page is for admin use only)
-        </p>
+        
+        <div className="text-center">
+          <button
+            type="button"
+            className="text-indigo-600 hover:text-indigo-500"
+            onClick={() => setLocation('/')}
+          >
+            Back to Home
+          </button>
+        </div>
       </div>
     </div>
   );

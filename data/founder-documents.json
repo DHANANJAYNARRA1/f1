@@ -1,0 +1,52 @@
+{
+  "documents": [
+    {
+      "userId": "5",
+      "userName": "fun",
+      "userType": "founder",
+      "documents": {
+        "idDocument": "idDocument-1751542331352-879547770.pdf",
+        "pitchDeck": "pitchDeck-1751542331356-236317511.pdf",
+        "certificationOfIncorporation": "certificationOfIncorporation-1751542331358-634297932.pdf",
+        "memorandumOfAssociation": "memorandumOfAssociation-1751542331362-106425383.pdf",
+        "companyOverview": "companyOverview-1751542331361-408914919.pdf",
+        "businessDocument": "businessDocument-1751542331353-168092918.pdf",
+        "businessPlan": "businessPlan-1751542331363-657685144.pdf",
+        "financialModel": "financialModel-1751542331364-356339444.pdf",
+        "intellectualProperty": "intellectualProperty-1751542331365-564264344.pdf",
+        "executiveSummary": "executiveSummary-1751542331366-866442333.pdf",
+        "marketAnalysis": "marketAnalysis-1751542331451-444682269.pdf",
+        "productRoadmap": "productRoadmap-1751542331452-376979327.pdf",
+        "useOfInvestments": "useOfInvestments-1751542331500-355274713.pdf"
+      },
+      "status": "pending",
+      "adminApproved": false,
+      "superAdminApproved": false,
+      "createdAt": "2025-01-23T10:32:11.500Z"
+    },
+    {
+      "userId": "6",
+      "userName": "fun",
+      "userType": "investor",
+      "documents": {
+        "idDocument": "idDocument-1751544663928-600837665.pdf",
+        "pitchDeck": "pitchDeck-1751544663936-666854931.pdf",
+        "certificationOfIncorporation": "certificationOfIncorporation-1751544663937-39933093.pdf",
+        "memorandumOfAssociation": "memorandumOfAssociation-1751544663944-622811481.pdf",
+        "companyOverview": "companyOverview-1751544663942-794693878.pdf",
+        "businessDocument": "businessDocument-1751544663931-683850816.pdf",
+        "businessPlan": "businessPlan-1751544663948-388238217.pdf",
+        "financialModel": "financialModel-1751544663951-754797606.pdf",
+        "intellectualProperty": "intellectualProperty-1751544663956-804493956.pdf",
+        "executiveSummary": "executiveSummary-1751544663958-576366856.pdf",
+        "marketAnalysis": "marketAnalysis-1751544663962-5204841.pdf",
+        "productRoadmap": "productRoadmap-1751544663964-12711831.pdf",
+        "useOfInvestments": "useOfInvestments-1751544663970-158049246.pdf"
+      },
+      "status": "admin-approved",
+      "adminApproved": true,
+      "superAdminApproved": false,
+      "createdAt": "2025-01-23T11:11:03.970Z"
+    }
+  ]
+}

@@ -1,73 +1,80 @@
-import { createRoot } from "react-dom/client";
-import App from "./App";
-import "./index.css";
-import { AuthProvider } from "@/hooks/use-auth";
-import { QueryClientProvider } from "@tanstack/react-query";
-import { queryClient } from "./lib/queryClient";
-import { preloadResources, deferOperation, logPerformanceMetrics } from "./lib/performance";
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
+import { Router, Route, Switch } from 'wouter';
+import './index.css';
 
-// Preload critical resources
-preloadResources([
-  '/images/logo.svg',
-  '/fonts/main.woff2',
-]);
+// Import components
+import { AuthProvider } from './hooks/use-auth';
+import ProtectedRoute from './lib/protected-route';
+import HomePage from './pages/home-page';
+import AuthPage from './pages/auth-page';
+import UserDashboard from './pages/user-dashboard';
+import AdminDashboard from './pages/admin-dashboard';
+import FounderDashboard from './pages/founder-dashboard';
+import InvestorDashboard from './pages/investor-dashboard';
+import MentorDashboard from './pages/mentor-dashboard';
+import SuperAdminDashboard from './pages/SuperAdminDashboard';
+import AdminLogin from './pages/admin-login';
+import NotFound from './pages/not-found';
+import { Toaster } from './components/ui/toaster';
 
-// Create the root and render the application
-const rootElement = document.getElementById("root")!;
-const root = createRoot(rootElement);
-
-// Render the main application
-root.render(
-  <QueryClientProvider client={queryClient}>
-    <AuthProvider>
-      <App />
-    </AuthProvider>
-  </QueryClientProvider>
-);
-
-// Log performance metrics in development mode
-logPerformanceMetrics();
-
-// Defer non-critical operations
-deferOperation(() => {
-  // Prefetch fonts, images, or other resources that may be needed later
-  const imageUrls = [
-    '/products/hydroponics.jpg',
-    '/products/ecg.jpg',
-    '/products/hps.jpg',
-    '/products/terrace.jpg'
-  ];
-  
-  // Load images in the background
-  imageUrls.forEach(url => {
-    const img = new Image();
-    img.src = url;
-  });
-  
-  // Ensure no service worker is registered that might cause issues
-  if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.getRegistrations().then(registrations => {
-      for (let registration of registrations) {
-        registration.unregister();
-        console.log('Service worker unregistered');
-      }
-    });
-  }
-  
-  // Fix WebSocket connections in new tabs by ensuring properly formed URLs
-  window.addEventListener('DOMContentLoaded', () => {
-    // This fixes WebSocket URL parsing in new tabs
-    try {
-      const wsUrlFix = () => {
-        const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
-        const host = window.location.host;
-        return { protocol, host };
-      };
-      // Store the fixed URL parts in window for global access
-      (window as any).__fixedWsUrl = wsUrlFix();
-      console.log('WebSocket URL parts fixed:', (window as any).__fixedWsUrl);
-    } catch (error) {
-      console.error('Failed to fix WebSocket URL:', error);
-    }
-  });
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      staleTime: 1000 * 60 * 5, // 5 minutes
+      retry: 1,
+    },
+  },
 });
+
+function App() {
+  return (
+    <QueryClientProvider client={queryClient}>
+      <AuthProvider>
+        <Router>
+          <div className="min-h-screen bg-background">
+            <Switch>
+              <Route path="/" component={HomePage} />
+              <Route path="/auth" component={AuthPage} />
+              <Route path="/admin-login" component={AdminLogin} />
+              
+              <ProtectedRoute path="/dashboard" userType="user">
+                <UserDashboard />
+              </ProtectedRoute>
+              
+              <ProtectedRoute path="/admin-dashboard" userType="admin">
+                <AdminDashboard />
+              </ProtectedRoute>
+              
+              <ProtectedRoute path="/founder-dashboard" userType="founder">
+                <FounderDashboard />
+              </ProtectedRoute>
+              
+              <ProtectedRoute path="/investor-dashboard" userType="investor">
+                <InvestorDashboard />
+              </ProtectedRoute>
+              
+              <ProtectedRoute path="/mentor-dashboard" userType="mentor">
+                <MentorDashboard />
+              </ProtectedRoute>
+              
+              <ProtectedRoute path="/superadmin-dashboard" userType="superadmin">
+                <SuperAdminDashboard />
+              </ProtectedRoute>
+              
+              <Route component={NotFound} />
+            </Switch>
+            <Toaster />
+          </div>
+        </Router>
+      </AuthProvider>
+    </QueryClientProvider>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')!).render(
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
+);

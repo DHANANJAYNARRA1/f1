@@ -1,196 +1,202 @@
-import React, { useEffect, useState, lazy, Suspense } from "react";
-import { socket } from "@/socket";
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogFooter } from "@/components/ui/dialog";
-import { useAuth } from "@/hooks/use-auth";
-import Chart from "chart.js/auto";
-import { Label } from '@/components/ui/label';
-import SuperAdminSidebar from "@/components/dashboard/superadmin/SuperAdminSidebar";
-import AdminManagementSection from "@/components/dashboard/admin/AdminManagementSection";
+import React, { useState, useEffect } from 'react';
+import { useAuth } from '@/hooks/use-auth';
+import { Button } from '@/components/ui/button';
+import { DocumentViewer } from '@/components/documents/DocumentViewer';
 
-// Lazy load all admin dashboard sections
-const UsersSection = lazy(() => import("@/components/dashboard/admin/UsersSection"));
-const ProductAnalyticsSection = lazy(() => import("@/components/dashboard/admin/ProductAnalyticsSection"));
-const ProductInterestsSection = lazy(() => import("@/components/dashboard/admin/ProductInterestsSection"));
-const ProductSubmissions = lazy(() => import("@/components/dashboard/admin/ProductSubmissions"));
-const MyRequestsSection = lazy(() => import("@/components/dashboard/admin/MyRequestsSection"));
-const ZoomCallsSection = lazy(() => import("@/components/dashboard/admin/ZoomCallsSection"));
-const VisitorMetricsSection = lazy(() => import("@/components/dashboard/admin/VisitorMetricsSection"));
-const SettingsSection = lazy(() => import("@/components/dashboard/admin/SettingsSection"));
-const SuperAdminZoomRequests = lazy(() => import("@/components/dashboard/superadmin/SuperAdminZoomRequests"));
+interface FounderDocument {
+  userId: string;
+  userName: string;
+  userType: string;
+  documents: {
+    [key: string]: string;
+  };
+  status: 'pending' | 'approved' | 'rejected';
+  createdAt: string;
+  adminApproved?: boolean;
+  superAdminApproved?: boolean;
+}
 
-// Sidebar items
-const SIDEBAR_ITEMS = [
-  { key: "home", label: "Home" },
-  { key: "users", label: "User Management" },
-  { key: "analytics", label: "Product Analytics" },
-  { key: "interests", label: "Product Interests" },
-  { key: "product-submissions", label: "Product Submissions" },
-  { key: "my-requests", label: "My Requests" },
-  { key: "zoom-calls", label: "Zoom Calls" },
-  { key: "visitors", label: "Visitor Metrics" },
-  { key: "settings", label: "Settings" },
-  { key: "admin-management", label: "Admin Management" },
-  { key: "tasks", label: "Tasks" },
-  { key: "super-analytics", label: "Analytics" },
-  { key: "logout", label: "Logout" },
-];
+export default function SuperAdminDashboard() {
+  const { user, logout } = useAuth();
+  const [founderDocuments, setFounderDocuments] = useState<FounderDocument[]>([]);
+  const [selectedDocument, setSelectedDocument] = useState<{ url: string; name: string } | null>(null);
+  const [loading, setLoading] = useState(true);
 
-const SuperAdminDashboard = () => {
-  const { user, logoutMutation } = useAuth();
-  const [activeSection, setActiveSection] = useState('users');
-  const [tasks, setTasks] = useState<any[]>([]);
-  const [actions, setActions] = useState<any[]>([]);
-  const [showAssignTask, setShowAssignTask] = useState(false);
-  const [taskData, setTaskData] = useState({ adminId: "", type: "", targetId: "", details: "" });
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState('');
-
-  // Only allow superadmin
   useEffect(() => {
-    if (!user || user.role !== "superadmin") {
-      window.location.href = "/not-found";
-    }
-  }, [user]);
+    fetchFounderDocuments();
+  }, []);
 
-  // Real-time listeners
-  useEffect(() => {
-    socket.emit("join", { userId: user?._id, role: user?.role });
-    socket.on("taskAssigned", ({ task }) => setTasks((prev) => [...prev, task]));
-    socket.on("adminActionLogged", ({ action }) => setActions((prev) => [...prev, action]));
-    // Fetch initial data (replace with API calls in production)
-    // ...
-    return () => {
-      socket.off("taskAssigned");
-      socket.off("adminActionLogged");
-    };
-  }, [user?._id, user?.role]);
-
-  // Analytics chart (example: admin actions count)
-  useEffect(() => {
-    if (activeSection === "super-analytics" && actions.length > 0) {
-      const ctx = document.getElementById("adminActionsChart") as HTMLCanvasElement;
-      if (ctx) {
-        new Chart(ctx, {
-          type: "pie",
-          data: {
-            labels: actions.map((a) => a.adminId),
-            datasets: [{
-              data: actions.map((a) => 1),
-              backgroundColor: ["#6366f1", "#f59e42", "#10b981", "#ef4444", "#fbbf24"],
-            }],
-          },
-        });
+  const fetchFounderDocuments = async () => {
+    try {
+      const response = await fetch('/api/superadmin/founder-documents', {
+        credentials: 'include',
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        setFounderDocuments(data.documents || []);
       }
-    }
-  }, [activeSection, actions]);
-
-  // Handle logout
-  const handleLogout = async () => {
-    await logoutMutation.mutateAsync();
-    window.location.href = "/login";
-  };
-
-  // Section rendering
-  const renderSection = () => {
-    switch (activeSection) {
-      case "home":
-        return (
-          <div className="max-w-2xl mx-auto bg-white rounded-lg shadow p-8 mt-8">
-            <h1 className="text-3xl font-bold mb-2">Welcome, Superadmin!</h1>
-            <p className="text-gray-600 mb-4">This is your landing page. Here you can see your profile and quick links.</p>
-            {user && (
-              <div className="mb-4">
-                <div className="font-semibold text-lg">{user.name || user.username}</div>
-                <div className="text-sm text-gray-500">Email: {('email' in user && user.email) ? user.email : user.username}</div>
-                <div className="text-sm text-gray-500">Unique ID: <span className="font-mono text-green-600">{user.uniqueId}</span></div>
-                <div className="text-sm text-gray-500">Role: {user.role}</div>
-              </div>
-            )}
-            <div className="flex gap-4 mt-6">
-              <Button onClick={() => setActiveSection("users")}>Go to User Management</Button>
-              <Button onClick={() => setActiveSection("admin-management")}>Go to Admin Management</Button>
-            </div>
-          </div>
-        );
-      case "users":
-        return <UsersSection />;
-      case "analytics":
-        return <ProductAnalyticsSection />;
-      case "interests":
-        return <ProductInterestsSection />;
-      case "product-submissions":
-        return <ProductSubmissions />;
-      case "my-requests":
-        return <MyRequestsSection />;
-      case "zoom-calls":
-        return <SuperAdminZoomRequests />;
-      case "visitors":
-        return <VisitorMetricsSection />;
-      case "settings":
-        return <SettingsSection />;
-      case "admin-management":
-        return <AdminManagementSection />;
-      case "tasks":
-        return (
-          <div>
-            <div className="flex justify-between items-center mb-6">
-              <h1 className="text-2xl font-bold">Tasks</h1>
-              <Button onClick={() => setShowAssignTask(true)}>Assign Task</Button>
-            </div>
-            <ul className="space-y-4">
-              {tasks.map((task) => (
-                <li key={task._id} className="p-4 bg-gray-100 rounded shadow flex flex-col">
-                  <div className="font-semibold">{task.type}</div>
-                  <div className="text-xs text-gray-500">Admin: {actions.find((a) => a.adminId === a._id)?.adminId}</div>
-                  <div className="text-xs text-gray-500">Status: {task.status}</div>
-                  <div className="text-xs text-gray-500">Details: {task.details}</div>
-                </li>
-              ))}
-            </ul>
-            <Dialog open={showAssignTask} onOpenChange={setShowAssignTask}>
-              <DialogContent>
-                <DialogHeader>
-                  <DialogTitle>Assign Task</DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4">
-                  <Input placeholder="Admin ID" value={taskData.adminId} onChange={(e) => setTaskData((t) => ({ ...t, adminId: e.target.value }))} />
-                  <Input placeholder="Task Type" value={taskData.type} onChange={(e) => setTaskData((t) => ({ ...t, type: e.target.value }))} />
-                  <Input placeholder="Target ID (optional)" value={taskData.targetId} onChange={(e) => setTaskData((t) => ({ ...t, targetId: e.target.value }))} />
-                  <Input placeholder="Details (optional)" value={taskData.details} onChange={(e) => setTaskData((t) => ({ ...t, details: e.target.value }))} />
-                </div>
-                <DialogFooter>
-                  <Button onClick={() => {
-                    socket.emit("assignTask", taskData);
-                    setShowAssignTask(false);
-                    setTaskData({ adminId: "", type: "", targetId: "", details: "" });
-                  }}>Assign</Button>
-                </DialogFooter>
-              </DialogContent>
-            </Dialog>
-          </div>
-        );
-      case "super-analytics":
-        return (
-          <div className="bg-white rounded-lg shadow p-6">
-            <h2 className="text-xl font-semibold mb-4">Admin Analytics</h2>
-            <canvas id="adminActionsChart" width={400} height={400}></canvas>
-          </div>
-        );
-      default:
-        return <UsersSection />;
+    } catch (error) {
+      console.error('Failed to fetch founder documents:', error);
+    } finally {
+      setLoading(false);
     }
   };
+
+  const handleSuperAdminApprove = async (userId: string) => {
+    try {
+      const response = await fetch('/api/superadmin/approve-founder', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({ userId }),
+      });
+
+      if (response.ok) {
+        fetchFounderDocuments(); // Refresh the list
+      }
+    } catch (error) {
+      console.error('Failed to super admin approve founder:', error);
+    }
+  };
+
+  const handleSuperAdminReject = async (userId: string) => {
+    try {
+      const response = await fetch('/api/superadmin/reject-founder', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({ userId }),
+      });
+
+      if (response.ok) {
+        fetchFounderDocuments(); // Refresh the list
+      }
+    } catch (error) {
+      console.error('Failed to super admin reject founder:', error);
+    }
+  };
+
+  if (loading) {
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-primary"></div>
+      </div>
+    );
+  }
 
   return (
-    <div className="flex h-screen bg-gray-100 text-foreground">
-      <SuperAdminSidebar activeSection={activeSection} setActiveSection={setActiveSection} />
-      <main className="flex-1 p-6 overflow-y-auto">
-        {renderSection()}
-      </main>
+    <div className="min-h-screen bg-gray-50">
+      <div className="bg-white shadow">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between items-center py-6">
+            <h1 className="text-3xl font-bold text-gray-900">Super Admin Dashboard</h1>
+            <Button onClick={logout} variant="outline">
+              Logout
+            </Button>
+          </div>
+        </div>
+      </div>
+      
+      <div className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div className="px-4 py-6 sm:px-0">
+          <div className="bg-white overflow-hidden shadow rounded-lg">
+            <div className="px-4 py-5 sm:p-6">
+              <h2 className="text-lg font-medium text-gray-900 mb-4">
+                Welcome, Super Admin {user?.name}!
+              </h2>
+              
+              <div className="mt-8">
+                <h3 className="text-xl font-semibold mb-4">Founder Document Final Reviews</h3>
+                
+                {founderDocuments.length === 0 ? (
+                  <p className="text-gray-600">No founder documents pending super admin review.</p>
+                ) : (
+                  <div className="space-y-6">
+                    {founderDocuments.map((founder) => (
+                      <div key={founder.userId} className="border border-gray-200 rounded-lg p-6">
+                        <div className="flex justify-between items-start mb-4">
+                          <div>
+                            <h4 className="text-lg font-medium">{founder.userName}</h4>
+                            <p className="text-sm text-gray-600">User Type: {founder.userType}</p>
+                            <div className="flex items-center space-x-4 mt-2">
+                              <p className="text-sm text-gray-600">
+                                Admin Status: <span className={`font-medium ${
+                                  founder.adminApproved ? 'text-green-600' : 'text-yellow-600'
+                                }`}>
+                                  {founder.adminApproved ? 'Approved' : 'Pending'}
+                                </span>
+                              </p>
+                              <p className="text-sm text-gray-600">
+                                Super Admin Status: <span className={`font-medium ${
+                                  founder.superAdminApproved ? 'text-green-600' : 'text-yellow-600'
+                                }`}>
+                                  {founder.superAdminApproved ? 'Approved' : 'Pending'}
+                                </span>
+                              </p>
+                            </div>
+                            <p className="text-sm text-gray-600">
+                              Submitted: {new Date(founder.createdAt).toLocaleDateString()}
+                            </p>
+                          </div>
+                          
+                          {founder.adminApproved && !founder.superAdminApproved && (
+                            <div className="space-x-2">
+                              <Button
+                                onClick={() => handleSuperAdminApprove(founder.userId)}
+                                className="bg-green-600 hover:bg-green-700"
+                              >
+                                Final Approve
+                              </Button>
+                              <Button
+                                onClick={() => handleSuperAdminReject(founder.userId)}
+                                variant="destructive"
+                              >
+                                Final Reject
+                              </Button>
+                            </div>
+                          )}
+                        </div>
+                        
+                        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                          {Object.entries(founder.documents).map(([docType, filename]) => (
+                            <div key={docType} className="border border-gray-300 rounded p-3">
+                              <p className="text-sm font-medium mb-2">
+                                {docType.replace(/([A-Z])/g, ' $1').replace(/^./, str => str.toUpperCase())}
+                              </p>
+                              <Button
+                                size="sm"
+                                onClick={() => setSelectedDocument({
+                                  url: `/uploads/founder-docs/${filename}`,
+                                  name: `${docType} - ${founder.userName}`
+                                })}
+                              >
+                                View Document
+                              </Button>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {selectedDocument && (
+        <DocumentViewer
+          documentUrl={selectedDocument.url}
+          documentName={selectedDocument.name}
+          onClose={() => setSelectedDocument(null)}
+        />
+      )}
     </div>
   );
-};
-
-export default SuperAdminDashboard; 
+}
