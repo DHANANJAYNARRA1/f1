@@ -1,0 +1,39 @@
+[vite] connecting...
+[vite] connected.
+Warning: validateDOMNesting(...): <a> cannot appear as a descendant of &lt;a&gt;.
+    at a
+    at a
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=2e7623d0:337:18
+    at div
+    at div
+    at nav
+    at header
+    at Navbar (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/components/layout/Navbar.tsx:31:22)
+    at div
+    at AuthPage
+    at Route (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=2e7623d0:323:16)
+    at Switch (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=2e7623d0:379:17)
+    at Router
+    at App
+    at AuthProvider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/hooks/use-auth.tsx:26:32)
+    at QueryClientProvider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=fec7af44:2805:3)
+at a
+at a
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=2e7623d0:337:18
+at div
+at div
+at nav
+at header
+at Navbar (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/components/layout/Navbar.tsx:31:22)
+at div
+at AuthPage
+at Route (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=2e7623d0:323:16)
+at Switch (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/wouter.js?v=2e7623d0:379:17)
+at Router
+at App
+at AuthProvider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/hooks/use-auth.tsx:26:32)
+at QueryClientProvider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@tanstack_react-query.js?v=fec7af44:2805:3)
+at t.value (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400

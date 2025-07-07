@@ -1,0 +1,140 @@
+{
+  "interests": [
+    {
+      "_id": "4",
+      "id": "4",
+      "userId": "10",
+      "userName": "dhananjay",
+      "productId": "NaN",
+      "source": "email",
+      "createdAt": "2025-04-24T09:24:30.157Z"
+    },
+    {
+      "_id": "5",
+      "id": "5",
+      "userId": "10",
+      "userName": "dhananjay",
+      "productId": "NaN",
+      "source": "whatsapp",
+      "createdAt": "2025-04-24T09:24:46.423Z"
+    },
+    {
+      "_id": "6",
+      "id": "6",
+      "userId": "10",
+      "userName": "dhananjay",
+      "productId": "NaN",
+      "source": "linkedin",
+      "createdAt": "2025-04-24T09:25:34.757Z"
+    },
+    {
+      "_id": "7",
+      "id": "7",
+      "userId": "10",
+      "userName": "dhananjay",
+      "productId": "terrace-garden",
+      "source": null,
+      "createdAt": "2025-04-24T09:27:10.846Z"
+    },
+    {
+      "_id": "8",
+      "id": "8",
+      "userId": "11",
+      "userName": "jay",
+      "productId": "hydroponics",
+      "source": null,
+      "createdAt": "2025-04-24T09:34:56.699Z"
+    },
+    {
+      "_id": "9",
+      "id": "9",
+      "userId": "11",
+      "userName": "jay",
+      "productId": "ecg",
+      "source": null,
+      "createdAt": "2025-04-24T09:34:58.307Z"
+    },
+    {
+      "_id": "10",
+      "id": "10",
+      "userId": "11",
+      "userName": "jay",
+      "productId": "ecg",
+      "source": null,
+      "createdAt": "2025-04-24T09:35:02.894Z"
+    },
+    {
+      "_id": "11",
+      "id": "11",
+      "userId": "12",
+      "userName": "suni",
+      "productId": "hps",
+      "source": null,
+      "createdAt": "2025-04-30T06:00:05.438Z"
+    },
+    {
+      "_id": "12",
+      "id": "12",
+      "userId": "12",
+      "userName": "suni",
+      "productId": "terrace-garden",
+      "source": null,
+      "createdAt": "2025-04-30T06:00:08.174Z"
+    },
+    {
+      "_id": "13",
+      "id": "13",
+      "userId": "14",
+      "userName": "s1",
+      "productId": "NaN",
+      "source": "linkedin",
+      "createdAt": "2025-05-02T05:52:57.876Z"
+    },
+    {
+      "_id": "14",
+      "id": "14",
+      "userId": "14",
+      "userName": "s1",
+      "productId": "NaN",
+      "source": "email",
+      "createdAt": "2025-05-02T05:53:05.121Z"
+    },
+    {
+      "_id": "15",
+      "id": "15",
+      "userId": "12",
+      "userName": "suni",
+      "productId": "NaN",
+      "source": "linkedin",
+      "createdAt": "2025-05-02T06:23:03.970Z"
+    },
+    {
+      "_id": "16",
+      "id": "16",
+      "userId": "12",
+      "userName": "suni",
+      "productId": "NaN",
+      "source": "email",
+      "createdAt": "2025-05-02T06:23:18.670Z"
+    },
+    {
+      "_id": "17",
+      "id": "17",
+      "userId": "7",
+      "userName": "mentor",
+      "productId": "hps",
+      "source": null,
+      "createdAt": "2025-06-05T06:22:52.609Z"
+    },
+    {
+      "_id": "18",
+      "id": "18",
+      "userId": "7",
+      "userName": "mentor",
+      "productId": "dschool-innovation",
+      "source": null,
+      "createdAt": "2025-06-05T06:46:11.277Z"
+    }
+  ],
+  "nextInterestId": 19
+}

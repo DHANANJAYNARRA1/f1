@@ -1,0 +1,57 @@
+add nav bar home,product,services,aboutus, in navbar add the Home products services, about us also and its related pages when clicked on it display also all functionality & logic add it for every button,pages and in express button as said card should display before if not sign or login to view detail in user dashboard then redirect to user page in that add products, services, profile logout sidebar when clicked on products add the images of 4 products its description some & link add as learn more to know in detail then add the reach out at:-email(inbox open with organization mail),whatsapp(with number), linkdlein(organization page) add it as deep linking to redirect to its pages add som info as added default along with this clicks & importantly admin page can store user data when signed in ,how many products liked, which product interseted add all it to stores user data also in database to stores the users data in mongodb also admin can handle the page to add, edit, modify, delete anything from the landing page in future also add setting in admin to modify admin credentials if required and both user & admin credentials should have separate pages according to credentials it need to redirect to its page ------got it add all logic & functionality & resolve issues the products are 1. hydroponics, 2, ecg 3. hps, 4. terrace garden as said add the problem statement also below it-----add how much you can & how much you understood but without error you give the total website
+
+
+Landing-Page--1744354355137.txt
+i want a website to complete the process with logic & functionality as by this diagram Landing Page (Public) ]
+// ├─ Shows: Hero image, Value Proposition
+// ├─ Brief overview of 4 Products
+// ├─ CTA: "Sign Up" / "Login"
+// |---in nav bar 1. home--with image carausel , 2. products----with 4 image card view with below its descriptions & each products have express to interset button that have functions like when clicked on it pop up with sign up card to new user & old user to login card upon that page itself
+// v
+// [ Sign Up Page (New Users) ]
+// ├─ Form: Name, Email, Password
+// ├─ Validates and creates new account
+// └─ Redirect to Login
+// |
+// v
+// [ Login Page (Returning Users) ]
+// ├─ Form: Email, Password
+// ├─ If valid ➜ Redirect to Dashboard
+// |
+//
+// [ User Dashboard (Private) ]
+// ├─ Welcome message
+// ├─ Access to 4 Products:
+add button to every products like express interest when click on it it need to redirect to choose account with mail, linkdlein, whatsapp such that it need to redirect to open directly to organization mail inbox & linkdlein , whatsapp same it need to open as of now add default details in it to open late i will change it & keep high resolution images to attract clients
+// | ├─ Product A: Overview + CTA
+// | ├─ Product B: Overview + CTA
+// | ├─ Product C: Overview + CTA
+// | └─ Product D: Overview + CTA
+// |
+// ├─ Services Section
+// ├─ Support Section (FAQ / Contact)
+// ├─ Profile Section (Update info, Logout)
+// |
+// v
+// [ Logout ]
+// └─ Clears session, Redirect to Landing Page
+
+// 👨‍💼 ADMIN FLOWCHART:
+// START
+// |
+// v
+// [ Admin Login Page (Secure) ]
+// ├─ Form: Admin Email, Password (Hardcoded or stored)
+// ├─ If valid ➜ Redirect to Admin Dashboard
+// |
+// [ Admin Dashboard ]
+// ├─ View List of Users
+// ├─ View Interested Products (Per User)
+// ├─ View Registration Dates
+// ├─ Analyze Product Interest Trends
+add setting to change its credentials
+// └─ Logout ➜ Redirect to Landing Page----add database mongodb to store data and separate user & admin pages to be built where admin can only know users things give this total website in react ,node ,database complete website
+
+
+
+

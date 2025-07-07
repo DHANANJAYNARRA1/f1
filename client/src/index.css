@@ -1,0 +1,187 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Page transition animations */
+.page-transition-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.page-transition-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 200ms, transform 200ms;
+}
+
+.page-transition-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.page-transition-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 150ms, transform 150ms;
+}
+
+/* Add content-visibility for better rendering performance */
+.content-defer {
+  content-visibility: auto;
+  contain-intrinsic-size: 0 500px;
+}
+
+/* Mobile optimizations */
+@media screen and (max-width: 768px) {
+  /* Font size adjustments for better readability on mobile */
+  body {
+    font-size: 14px;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    font-size: 1.25rem;
+  }
+  
+  /* Improved touch targets for mobile */
+  button, .btn, a.btn, input[type="submit"] {
+    min-height: 44px; /* Apple's recommended minimum touch target size */
+    padding: 0.6rem 1rem;
+  }
+  
+  /* Adjust spacing for mobile */
+  .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+  
+  /* Fix table display on mobile */
+  table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+  }
+  
+  /* Improve form inputs on mobile */
+  input, select, textarea {
+    font-size: 16px !important; /* Prevents iOS zoom on focus */
+  }
+}
+
+/* Performance optimization: content-visibility improves rendering performance */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  /* Set critical CSS properties in the root for better performance */
+  :root {
+    --main-font: 'Inter', sans-serif;
+    --navbar-height: 64px;
+    --animation-duration: 0.2s;
+    --transition-easing: cubic-bezier(0.4, 0, 0.2, 1);
+    --background: 0 0% 100%;
+    --foreground: 222.2 84% 4.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 222.2 84% 4.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 222.2 84% 4.9%;
+    --primary: 262.1 83.3% 57.8%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 215 20.2% 65.1%;
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+    --accent: 210 40% 96.1%;
+    --accent-foreground: 222.2 47.4% 11.2%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 262.1 83.3% 57.8%;
+    --radius: 0.75rem;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 340 80% 55%;
+    --chart-4: 40 70% 55%;
+    --chart-5: 280 65% 60%;
+  }
+
+  .dark {
+    --background: 222.2 84% 4.9%;
+    --foreground: 210 40% 98%;
+    --card: 222.2 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+    --popover: 222.2 84% 4.9%;
+    --popover-foreground: 210 40% 98%;
+    --primary: 263.4 90.2% 51.2%;
+    --primary-foreground: 210 40% 98%;
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+    --accent: 217.2 32.6% 17.5%;
+    --accent-foreground: 210 40% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 263.4 90.2% 51.2%;
+    --chart-1: 210 70% 80%;
+    --chart-2: 160 60% 75%;
+    --chart-3: 340 80% 75%;
+    --chart-4: 40 70% 75%;
+    --chart-5: 280 65% 80%;
+  }
+
+  html, body {
+    height: 100%;
+    width: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    font-family: var(--main-font);
+    padding-top: 0; /* Removed navbar padding to fix extra space */
+    text-rendering: optimizeSpeed; /* Improve text rendering performance */
+    -webkit-font-smoothing: antialiased; /* Better font rendering on WebKit browsers */
+    -moz-osx-font-smoothing: grayscale; /* Better font rendering on Firefox */
+  }
+  
+  /* Apply padding only to pages that need the navbar space, not dashboards */
+  .with-navbar-padding {
+    padding-top: var(--navbar-height);
+  }
+
+  /* Improve image loading performance */
+  img, picture, video {
+    max-width: 100%;
+    display: block;
+  }
+
+  /* Performance optimizations for large content areas */
+  .content-block {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 500px;
+  }
+
+  /* Use hardware acceleration for animations */
+  .animate-gpu {
+    will-change: transform;
+    transform: translateZ(0);
+  }
+
+  /* Minimize layout shifts with placeholders */
+  .image-placeholder {
+    background-color: #f3f4f6;
+    aspect-ratio: 16 / 9;
+  }
+}

@@ -1,0 +1,50 @@
+i want a website to complete the process with logic & functionality as by this diagram Landing Page (Public) ]
+// ├─ Shows: Hero image, Value Proposition
+// ├─ Brief overview of 4 Products
+// ├─ CTA: "Sign Up" / "Login"
+// |---in nav bar 1. home--with image carausel , 2. products----with 4 image card view with below its descriptions & each products have express to interset button that have functions like when clicked on it pop up with sign up card to new user & old user to login card upon that page itself
+// v
+// [ Sign Up Page (New Users) ]
+// ├─ Form: Name, Email, Password
+// ├─ Validates and creates new account
+// └─ Redirect to Login
+// |
+// v
+// [ Login Page (Returning Users) ]
+// ├─ Form: Email, Password
+// ├─ If valid ➜ Redirect to Dashboard
+// |
+//
+// [ User Dashboard (Private) ]
+// ├─ Welcome message
+// ├─ Access to 4 Products:
+add button to every products like express interest when click on it it need to redirect to choose account with mail, linkdlein, whatsapp such that it need to redirect to open directly to organization mail inbox & linkdlein , whatsapp same it need to open as of now add default details in it to open late i will change it & keep high resolution images to attract clients
+// | ├─ Product A: Overview + CTA
+// | ├─ Product B: Overview + CTA
+// | ├─ Product C: Overview + CTA
+// | └─ Product D: Overview + CTA
+// |
+// ├─ Services Section
+// ├─ Support Section (FAQ / Contact)
+// ├─ Profile Section (Update info, Logout)
+// |
+// v
+// [ Logout ]
+// └─ Clears session, Redirect to Landing Page
+
+// 👨‍💼 ADMIN FLOWCHART:
+// START
+// |
+// v
+// [ Admin Login Page (Secure) ]
+// ├─ Form: Admin Email, Password (Hardcoded or stored)
+// ├─ If valid ➜ Redirect to Admin Dashboard
+// |
+// [ Admin Dashboard ]
+// ├─ View List of Users
+// ├─ View Interested Products (Per User)
+// ├─ View Registration Dates
+// ├─ Analyze Product Interest Trends
+add setting to change its credentials
+// └─ Logout ➜ Redirect to Landing Page----add database mongodb to store data and separate user & admin pages to be built where admin can only know users things give this total website in react ,node ,database complete website
+

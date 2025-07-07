@@ -1,0 +1,44 @@
+{
+  "requests": [
+    {
+      "_id": "2",
+      "id": "2",
+      "userId": "8",
+      "userName": "Test User",
+      "serviceType": "Installation",
+      "preferredDate": "2025-05-10T10:00:00.000Z",
+      "preferredTime": "Morning",
+      "location": "New York",
+      "notes": "Test service request",
+      "status": "pending",
+      "createdAt": "2025-04-24T08:36:22.877Z"
+    },
+    {
+      "_id": "3",
+      "id": "3",
+      "userId": "10",
+      "userName": "dhananjay",
+      "serviceType": "Installation & Setup",
+      "preferredDate": "2025-04-25T00:00:00.000Z",
+      "preferredTime": "09:29",
+      "location": "hyd",
+      "notes": "",
+      "status": "pending",
+      "createdAt": "2025-04-24T09:27:40.906Z"
+    },
+    {
+      "_id": "4",
+      "id": "4",
+      "userId": "11",
+      "userName": "jay",
+      "serviceType": "Installation & Setup",
+      "preferredDate": "2025-04-25T00:00:00.000Z",
+      "preferredTime": "09:35",
+      "location": "kolkata",
+      "notes": "",
+      "status": "pending",
+      "createdAt": "2025-04-24T09:35:21.955Z"
+    }
+  ],
+  "nextServiceRequestId": 5
+}

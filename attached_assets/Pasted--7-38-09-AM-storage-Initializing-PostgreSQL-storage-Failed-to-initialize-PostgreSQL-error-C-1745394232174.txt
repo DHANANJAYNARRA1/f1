@@ -1,0 +1,194 @@
+
+7:38:09 AM [storage] Initializing PostgreSQL storage...
+Failed to initialize PostgreSQL: error: Console request failed: endpoint is disabled
+    at /home/runner/workspace/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresStorage.initialize (/home/runner/workspace/server/storage.ts:39:7)
+    at async registerRoutes (/home/runner/workspace/server/routes.ts:13:5)
+    at async <anonymous> (/home/runner/workspace/server/index.ts:40:18) {
+  length: 65,
+  severity: 'ERROR',
+  code: 'XX000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined
+}
+Failed to initialize database: Error: Failed to initialize database: error: Console request failed: endpoint is disabled
+    at PostgresStorage.initialize (/home/runner/workspace/server/storage.ts:81:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async registerRoutes (/home/runner/workspace/server/routes.ts:13:5)
+    at async <anonymous> (/home/runner/workspace/server/index.ts:40:18)
+Failed to initialize PostgreSQL: error: Console request failed: endpoint is disabled
+    at /home/runner/workspace/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresStorage.initialize (/home/runner/workspace/server/storage.ts:39:7) {
+  length: 65,
+  severity: 'ERROR',
+  code: 'XX000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined
+}
+Failed to initialize database: Error: Failed to initialize database: error: Console request failed: endpoint is disabled
+    at PostgresStorage.initialize (/home/runner/workspace/server/storage.ts:81:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+PostgreSQL connection error: error: Console request failed: endpoint is disabled
+    at /home/runner/workspace/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async connectDB (/home/runner/workspace/server/db.ts:43:5) {
+  length: 65,
+  severity: 'ERROR',
+  code: 'XX000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined
+}
+7:38:09 AM [database] Failed to connect to PostgreSQL.
+PostgreSQL initialization error: error: Console request failed: endpoint is disabled
+    at /home/runner/workspace/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async connectDB (/home/runner/workspace/server/db.ts:43:5) {
+  length: 65,
+  severity: 'ERROR',
+  code: 'XX000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined
+}
+Failed to initialize PostgreSQL: error: Console request failed: endpoint is disabled
+    at /home/runner/workspace/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PostgresStorage.initialize (/home/runner/workspace/server/storage.ts:39:7)
+    at async initializeStorage (/home/runner/workspace/server/storage.ts:147:5) {
+  length: 65,
+  severity: 'ERROR',
+  code: 'XX000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined
+}
+Failed to initialize PostgreSQL storage: Error: Failed to initialize database: error: Console request failed: endpoint is disabled
+    at PostgresStorage.initialize (/home/runner/workspace/server/storage.ts:81:13)
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async initializeStorage (/home/runner/workspace/server/storage.ts:147:5)
+7:38:09 AM [storage] Falling back to in-memory storage
+7:38:09 AM [mongodb] Using in-memory storage as MongoDB fallback
+7:38:09 AM [storage] Initializing memory storage with admin user
+7:38:09 AM [express] serving on port 5000
+7:38:10 AM [storage] Admin user created in memory storage
+7:39:16 AM [express] GET /api/user 401 in 3ms :: {"success":false,"message":"Not authenticated"}
+7:41:17 AM [express] GET /api/user 401 in 1ms :: {"success":false,"message":"Not authenticated"}
+API error: error: Console request failed: endpoint is disabled
+    at /home/runner/workspace/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:322:21) {
+  length: 65,
+  severity: 'ERROR',
+  code: 'XX000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined
+}
+7:41:18 AM [express] POST /api/register 500 in 460ms :: {"success":false,"message":"Internal server …
+Error [ERR_HTTP_HEADERS_SENT]: Cannot set headers after they are sent to the client
+    at ServerResponse.setHeader (node:_http_outgoing:655:11)
+    at ServerResponse.header (/home/runner/workspace/node_modules/express/lib/response.js:794:10)
+    at ServerResponse.send (/home/runner/workspace/node_modules/express/lib/response.js:174:12)
+    at ServerResponse.json (/home/runner/workspace/node_modules/express/lib/response.js:278:15)
+    at ServerResponse.res.json (/home/runner/workspace/server/index.ts:17:28)
+    at <anonymous> (/home/runner/workspace/server/index.ts:46:24)
+    at Layer.handle_error (/home/runner/workspace/node_modules/express/lib/router/layer.js:71:5)
+    at trim_prefix (/home/runner/workspace/node_modules/express/lib/router/index.js:326:13)
+    at /home/runner/workspace/node_modules/express/lib/router/index.js:286:9
+    at Function.process_params (/home/runner/workspace/node_modules/express/lib/router/index.js:346:12)
+    at Immediate.next (/home/runner/workspace/node_modules/express/lib/router/index.js:280:10)
+    at process.processImmediate (node:internal/timers:485:21)
+API error: error: Console request failed: endpoint is disabled
+    at /home/runner/workspace/node_modules/pg-pool/index.js:45:11
+    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+    at async PGStore._asyncQuery (/home/runner/workspace/node_modules/connect-pg-simple/index.js:322:21) {
+  length: 65,
+  severity: 'ERROR',
+  code: 'XX000',
+  detail: undefined,
+  hint: undefined,
+  position: undefined,
+  internalPosition: undefined,
+  internalQuery: undefined,
+  where: undefined,
+  schema: undefined,
+  table: undefined,
+  column: undefined,
+  dataType: undefined,
+  constraint: undefined,
+  file: undefined,
+  line: undefined,
+  routine: undefined
+}
+7:41:34 AM [express] POST /api/login 500 in 202ms :: {"success":false,"message":"Internal server err…

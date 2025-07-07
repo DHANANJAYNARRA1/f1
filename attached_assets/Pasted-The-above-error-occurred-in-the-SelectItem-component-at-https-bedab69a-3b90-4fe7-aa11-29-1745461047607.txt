@@ -1,0 +1,89 @@
+The above error occurred in the <SelectItem> component:
+
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=c88cd8d0:3090:7
+    at _c11 (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/components/ui/select.tsx:207:13)
+    at div
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-GPVWVTJC.js?v=c88cd8d0:41:13
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TQG5UYZM.js?v=c88cd8d0:52:11
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TQG5UYZM.js?v=c88cd8d0:33:11
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FIACSFZ6.js?v=c88cd8d0:98:15
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=c88cd8d0:3001:13
+    at div
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TQG5UYZM.js?v=c88cd8d0:52:11
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TQG5UYZM.js?v=c88cd8d0:33:11
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FIACSFZ6.js?v=c88cd8d0:98:15
+    at Provider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-RJPHUGZC.js?v=c88cd8d0:48:15)
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=c88cd8d0:2545:59
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TQG5UYZM.js?v=c88cd8d0:52:11
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TQG5UYZM.js?v=c88cd8d0:33:11
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-GPVWVTJC.js?v=c88cd8d0:41:13
+    at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-GNV2CUWK.js?v=c88cd8d0:258:22
+    at SelectPortal
+    at _c7 (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/components/ui/select.tsx:122:12)
+    at Provider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-RJPHUGZC.js?v=c88cd8d0:48:15)
+    at Provider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FIACSFZ6.js?v=c88cd8d0:28:15)
+    at CollectionProvider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FIACSFZ6.js?v=c88cd8d0:89:13)
+    at Provider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-RJPHUGZC.js?v=c88cd8d0:48:15)
+    at Provider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=c88cd8d0:1948:15)
+    at Popper (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=c88cd8d0:2042:11)
+    at Select (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=c88cd8d0:2333:5)
+    at div
+    at div
+    at div
+    at _c9 (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/components/ui/card.tsx:114:12)
+    at div
+    at _c (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/components/ui/card.tsx:20:11)
+    at div
+    at ProductInterestsSection (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/components/dashboard/admin/ProductInterestsSection.tsx:54:39)
+    at div
+    at div
+    at div
+    at div
+    at AdminDashboard (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/pages/admin-dashboard.tsx?t=1745480532786:28:20)
+    at Route…
+
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=c88cd8d0:3090:7
+at _c11 (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/components/ui/select.tsx:207:13)
+at div
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-GPVWVTJC.js?v=c88cd8d0:41:13
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TQG5UYZM.js?v=c88cd8d0:52:11
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TQG5UYZM.js?v=c88cd8d0:33:11
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FIACSFZ6.js?v=c88cd8d0:98:15
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=c88cd8d0:3001:13
+at div
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TQG5UYZM.js?v=c88cd8d0:52:11
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TQG5UYZM.js?v=c88cd8d0:33:11
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FIACSFZ6.js?v=c88cd8d0:98:15
+at Provider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-RJPHUGZC.js?v=c88cd8d0:48:15)
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=c88cd8d0:2545:59
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TQG5UYZM.js?v=c88cd8d0:52:11
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-TQG5UYZM.js?v=c88cd8d0:33:11
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-GPVWVTJC.js?v=c88cd8d0:41:13
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-GNV2CUWK.js?v=c88cd8d0:258:22
+at SelectPortal
+at _c7 (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/components/ui/select.tsx:122:12)
+at Provider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-RJPHUGZC.js?v=c88cd8d0:48:15)
+at Provider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FIACSFZ6.js?v=c88cd8d0:28:15)
+at CollectionProvider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-FIACSFZ6.js?v=c88cd8d0:89:13)
+at Provider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/chunk-RJPHUGZC.js?v=c88cd8d0:48:15)
+at Provider (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=c88cd8d0:1948:15)
+at Popper (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=c88cd8d0:2042:11)
+at Select (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/@fs/home/runner/workspace/node_modules/.vite/deps/@radix-ui_react-select.js?v=c88cd8d0:2333:5)
+at div
+at div
+at div
+at _c9 (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/components/ui/card.tsx:114:12)
+at div
+at _c (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/components/ui/card.tsx:20:11)
+at div
+at ProductInterestsSection (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/components/dashboard/admin/ProductInterestsSection.tsx:54:39)
+at div
+at div
+at div
+at div
+at AdminDashboard (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/src/pages/admin-dashboard.tsx?t=1745480532786:28:20)
+at Route…
+at t.value (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:17465)
+at new t (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:12630)
+at t.value (https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:32766)
+at https://bedab69a-3b90-4fe7-aa11-29a358b9f29c-00-pwx6f1c2fukh.picard.replit.dev/__replco/static/devtools/eruda/3.2.3/eruda.js:2:34400

@@ -1,0 +1,141 @@
+{
+  "users": [
+    {
+      "_id": "1",
+      "id": "1",
+      "name": "Admin User",
+      "username": "admin@agritech.com",
+      "password": "13a64c747481fd4d444b16382d2cf991bcf2790d3d22af2705560e2dd87a22af742767c1e97d1e416dd2a69e872a7734da0a2deddd2e74d622bfbea746ebc716.5d386d417dd3aad18a3126a3f80251c6",
+      "userType": "admin",
+      "otherTypeDesc": "",
+      "isAdmin": true,
+      "role": "admin",
+      "uniqueId": "ADM001",
+      "createdAt": "2025-06-21T05:16:15.661Z"
+    },
+    {
+      "_id": "admin1",
+      "id": "admin1",
+      "name": "Admin User",
+      "username": "admin@agritech.com",
+      "password": "ce060016c0b50d06469c3418bf86deee64afcf248631a2883b54fb2e43c2de8befe48bd1c756158a3790ac0fc5568fe4d95a43945c145c315410757174e6dbdc.6a4f54ff07f3887dd7ca848bdb37d092",
+      "userType": "admin",
+      "otherTypeDesc": "",
+      "isAdmin": true,
+      "role": "admin",
+      "uniqueId": "ADM001",
+      "createdAt": "2025-01-01T00:00:00.000Z"
+    },
+    {
+      "_id": "2",
+      "id": "2",
+      "name": "suni",
+      "username": "suni@gmail.com",
+      "password": "ce060016c0b50d06469c3418bf86deee64afcf248631a2883b54fb2e43c2de8befe48bd1c756158a3790ac0fc5568fe4d95a43945c145c315410757174e6dbdc.6a4f54ff07f3887dd7ca848bdb37d092",
+      "userType": "other",
+      "otherTypeDesc": "",
+      "isAdmin": false,
+      "createdAt": "2025-05-02T09:27:18.675Z"
+    },
+    {
+      "_id": "3",
+      "id": "3",
+      "name": "fun",
+      "username": "fun@gmail.com",
+      "password": "859eceb15223eea2d988f24965ff024f757cbe2e10c2aa6a09cf0f5440f04a5743c2fd94d95002e77a1aa4a97b1c59126dcdb557db1638b78c3e20fd4a3d30e3.c1fbd00c0fa0a9427adb731272d6ef41",
+      "userType": "organization",
+      "otherTypeDesc": "",
+      "isAdmin": false,
+      "createdAt": "2025-05-02T09:27:55.982Z"
+    },
+    {
+      "_id": "4",
+      "id": "4",
+      "name": "lalita",
+      "username": "lalitasamanta1434@gmail.com",
+      "password": "be26b3a4d0a28376ced177de5476add235840498b2e34fb45deb416bbdbea98fa31182c484436325e44711f2c7d2a57db5d2d2043f2a3c86ae90d933f86412d5.e667b82d63a670f9ebfce5f5a78b5e23",
+      "userType": "investor",
+      "otherTypeDesc": "",
+      "isAdmin": false,
+      "createdAt": "2025-05-08T06:29:49.503Z"
+    },
+    {
+      "_id": "5",
+      "id": "5",
+      "name": "fun",
+      "username": "funs@gmail.com",
+      "password": "884eb072616ff81c123f66a8e04383542cefc2205d28ce59f51c1486f42899e09c911e5b713171f2b8ee992953348d2170356392817aa3a1e48e1534f19781f1.d435a36661c5af50e3fe371e1baa7b89",
+      "userType": "founder",
+      "otherTypeDesc": "",
+      "phone": "5458956247",
+      "bio": "good\n",
+      "companyName": "sims",
+      "industry": "healthTech",
+      "stage": "scaling",
+      "fundingNeeded": "under100k",
+      "isAdmin": false,
+      "createdAt": "2025-05-21T09:38:01.573Z"
+    },
+    {
+      "_id": "6",
+      "id": "6",
+      "name": "fun",
+      "username": "fun1@gmail.com",
+      "password": "9381662e73687c22100c0e81e17b012366107b6cf0714273a0d6adc74f0c304459d6094805f7a2bec06ee45cfcc83719ba08b915c31345e7f999067e3f87a09c.75be718053a0f607b4a255eadebe0c75",
+      "userType": "investor",
+      "phone": "5458956987",
+      "isAdmin": false,
+      "createdAt": "2025-05-22T07:17:18.969Z"
+    },
+    {
+      "_id": "7",
+      "id": "7",
+      "name": "mentor",
+      "username": "mentor@gmail.com",
+      "password": "8d090b04fb2933cd11410f523cd3d042f00019f70696c689a2c30f62501132dd9e811a34feb510c0672dd8fda1ede6739aad6e0e397deca9bc619190aa41f778.f23afd42e22a5e6588deeacd8aadd5c6",
+      "userType": "other",
+      "phone": "7569235876",
+      "otherTypeDesc": "",
+      "isAdmin": false,
+      "createdAt": "2025-06-05T06:21:51.336Z"
+    },
+    {
+      "_id": "8",
+      "id": "8",
+      "name": "mentor1",
+      "username": "mentor1@gmail.com",
+      "password": "2b659bbd996b2722601ace6070acf36551c13b2eb8a20cbbcd06c29aaf072dbb7c2ccfab98ba0ed88b6aa3d569cd42c51c582ae3db81bc66a77f8ea0acdd211a.af01c267e1aaa86125af88fdbdcf99cd",
+      "userType": "mentor",
+      "phone": "7569235876",
+      "isAdmin": false,
+      "profession": "consultant",
+      "interests": "",
+      "createdAt": "2025-06-05T17:20:34.934Z"
+    },
+    {
+      "_id": "9",
+      "id": "9",
+      "name": "ag",
+      "username": "ag@gmail.com",
+      "password": "f24061e0d792d7282c3880bd57790aaad330600b19937767f435cb71d7c8c1810b09e1d3b5ca5a281fea9393e62293e9eee085e526991e55447bd168603cc9d2.180126f8a2626bb9771934d968026237",
+      "userType": "investor",
+      "phone": "7569235876",
+      "isAdmin": false,
+      "createdAt": "2025-06-06T00:29:06.581Z"
+    },
+    {
+      "_id": "10",
+      "id": "10",
+      "name": "d",
+      "username": "d@gmail.com",
+      "password": "65a07289efb3da3577cb136eae6d46f7d27df662975601f3abd66b986cb80528b77e2bef201d5a75e1b274f38baac86470f89b67f8bad9b2bb3075f52fef1d17.af28ebffa7fc95bfbd8268901b341f70",
+      "userType": "mentor",
+      "phone": "7569235876",
+      "isAdmin": false,
+      "profession": "researcher",
+      "interests": "",
+      "createdAt": "2025-06-07T07:35:47.335Z"
+    }
+  ],
+  "nextUserId": null
+}
