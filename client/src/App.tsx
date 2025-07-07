@@ -1,49 +1,78 @@
-import React from 'react';
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
-import { Router, Route, Switch } from 'wouter';
-import { AuthProvider } from './hooks/use-auth';
-import { ProtectedRoute } from './lib/protected-route';
-import HomePage from './pages/home-page';
-import AuthPage from './pages/auth-page';
-import UserDashboard from './pages/user-dashboard';
-import AdminDashboard from './pages/admin-dashboard';
-import SuperAdminDashboard from './pages/SuperAdminDashboard';
-import FounderDashboard from './pages/founder-dashboard';
-import InvestorDashboard from './pages/investor-dashboard';
-import MentorDashboard from './pages/mentor-dashboard';
-import NotFound from './pages/not-found';
-import './index.css';
+import { Suspense, lazy } from "react";
+import { Route, Switch } from "wouter";
+import { AuthProvider } from "@/hooks/use-auth";
+import { Toaster } from "@/components/ui/toaster";
+import MainLayout from "./components/layout/MainLayout";
+import HomePage from "./pages/home-page";
+import SolutionsPage from "./pages/solutions-page";
+import AuthPage from "./pages/auth-page";
+import NotFound from "./pages/not-found";
+import { ProtectedRoute } from "./lib/protected-route";
 
-const queryClient = new QueryClient({
-  defaultOptions: {
-    queries: {
-      staleTime: 1000 * 60 * 5, // 5 minutes
-      retry: 1,
-    },
-  },
-});
+// Lazy load components to improve initial load time
+const FounderDashboard = lazy(() => import("@/pages/founder-dashboard"));
+const InvestorDashboard = lazy(() => import("@/pages/investor-dashboard"));
+const MentorDashboard = lazy(() => import("@/pages/mentor-dashboard"));
+const AdminDashboard = lazy(() => import("@/pages/AdminDashboard"));
+const SuperAdminDashboard = lazy(() => import("@/pages/SuperAdminDashboard"));
+const ForgotPasswordPage = lazy(() => import("@/pages/forgot-password"));
+const AdminLoginPage = lazy(() => import("@/pages/admin-login"));
+const AddProductPage = lazy(() => import("@/pages/add-product-page"));
+const BrowseProductsPage = lazy(() => import("@/pages/browse-products-page"));
+const ChatPage = lazy(() => import("@/pages/ChatPage"));
+const UserDashboard = lazy(() => import("@/pages/user-dashboard"));
+const ProductDetailPage = lazy(() => import("@/pages/product-detail-page"));
 
 function App() {
   return (
-    <QueryClientProvider client={queryClient}>
-      <AuthProvider>
-        <Router>
-          <div className="min-h-screen bg-background">
-            <Switch>
-              <Route path="/" component={HomePage} />
-              <Route path="/auth" component={AuthPage} />
-              <ProtectedRoute path="/dashboard" component={UserDashboard} />
-              <ProtectedRoute path="/admin" component={AdminDashboard} />
-              <ProtectedRoute path="/superadmin" component={SuperAdminDashboard} />
-              <ProtectedRoute path="/founder" component={FounderDashboard} />
-              <ProtectedRoute path="/investor" component={InvestorDashboard} />
-              <ProtectedRoute path="/mentor" component={MentorDashboard} />
-              <Route component={NotFound} />
-            </Switch>
-          </div>
-        </Router>
-      </AuthProvider>
-    </QueryClientProvider>
+    <AuthProvider>
+      <MainLayout>
+        <Suspense fallback={<div className="h-screen flex items-center justify-center">Loading...</div>}>
+          <Switch>
+            <Route path="/" component={HomePage} />
+            <Route path="/solutions" component={SolutionsPage} />
+            <Route path="/auth" component={AuthPage} />
+            <ProtectedRoute
+              path="/founder-dashboard"
+              component={FounderDashboard}
+              allowedRoles={['founder']}
+            />
+            <ProtectedRoute
+              path="/investor-dashboard"
+              component={InvestorDashboard}
+              allowedRoles={['investor']}
+            />
+            <ProtectedRoute
+              path="/mentor-dashboard"
+              component={MentorDashboard}
+              allowedRoles={['mentor']}
+            />
+            <ProtectedRoute
+              path="/admin"
+              component={AdminDashboard}
+              allowedRoles={['admin']}
+            />
+            <Route path="/admin-login" component={AdminLoginPage} />
+            <ProtectedRoute path="/chat" component={ChatPage} />
+            <ProtectedRoute
+              path="/superadmin"
+              component={SuperAdminDashboard}
+              allowedRoles={['superadmin']}
+            />
+            <ProtectedRoute
+              path="/user-dashboard"
+              component={UserDashboard}
+              allowedRoles={['organization', 'other']}
+            />
+            <ProtectedRoute path="/product/:id" component={ProductDetailPage} />
+            <Route>
+              <NotFound />
+            </Route>
+          </Switch>
+        </Suspense>
+      </MainLayout>
+      <Toaster />
+    </AuthProvider>
   );
 }
 
