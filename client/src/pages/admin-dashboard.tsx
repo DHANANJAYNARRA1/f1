@@ -1,52 +1,89 @@
-import { useState } from "react";
-import AdminSidebar from "@/components/dashboard/admin/AdminSidebar";
-import ProductSubmissions from "@/components/dashboard/admin/ProductSubmissions";
-import ProductInterestsSection from "@/components/dashboard/admin/ProductInterestsSection";
-import ProductAnalyticsSection from "@/components/dashboard/admin/ProductAnalyticsSection";
-import ServiceRequestsSection from "@/components/dashboard/admin/ServiceRequestsSection";
-import SettingsSection from "@/components/dashboard/admin/SettingsSection";
-import ZoomCallsSection from "@/components/dashboard/admin/ZoomCallsSection";
-import ReviewQueriesSection from '@/components/dashboard/admin/ReviewQueriesSection';
-import AdminsSection from "@/components/dashboard/admin/AdminsSection";
-import UsersSection from "@/components/dashboard/admin/UsersSection";
-import FounderResponsesSection from "@/components/dashboard/admin/FounderResponsesSection";
-import AdminManagementSection from '@/components/dashboard/admin/AdminManagementSection';
+import React from 'react';
+import { useAuth } from '../hooks/use-auth';
+import { DocumentViewer } from '../components/documents/DocumentViewer';
+import { Button } from '../components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
 
-const AdminDashboard = () => {
-  const [activeSection, setActiveSection] = useState("users");
-
-  const renderSection = () => {
-    switch (activeSection) {
-      case "users":
-        return <UsersSection />;
-      case "review-queries":
-        return <ReviewQueriesSection />;
-      case "founder-responses":
-        return <FounderResponsesSection />;
-      case "submissions":
-        return <ProductSubmissions />;
-      case "admins":
-        return <AdminManagementSection />;
-      case "service-requests":
-        return <ServiceRequestsSection />;
-      case "zoom-calls":
-        return <ZoomCallsSection />;
-      case "settings":
-        return <SettingsSection />;
-      default:
-        return <UsersSection />;
-    }
-  };
+export default function AdminDashboard() {
+  const { user, logout } = useAuth();
 
   return (
-    <div className="flex h-screen bg-gray-100 text-foreground">
-      <AdminSidebar activeSection={activeSection} setActiveSection={setActiveSection} />
-      <main className="flex-1 p-8 overflow-y-auto">
-        {renderSection()}
+    <div className="min-h-screen bg-gray-50">
+      {/* Header */}
+      <header className="bg-white shadow">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex justify-between h-16">
+            <div className="flex items-center">
+              <h1 className="text-xl font-semibold text-gray-900">
+                Admin Dashboard - {user?.name}
+              </h1>
+            </div>
+            <div className="flex items-center">
+              <Button variant="outline" onClick={logout}>
+                Logout
+              </Button>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      {/* Main Content */}
+      <main className="max-w-7xl mx-auto py-6 sm:px-6 lg:px-8">
+        <div className="px-4 py-6 sm:px-0">
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6 mb-8">
+            <Card>
+              <CardHeader>
+                <CardTitle>Users</CardTitle>
+                <CardDescription>Manage user accounts</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">
+                  View and manage all registered users.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Products</CardTitle>
+                <CardDescription>Product management</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">
+                  Manage product listings and analytics.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Service Requests</CardTitle>
+                <CardDescription>Handle service requests</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">
+                  Review and manage service requests.
+                </p>
+              </CardContent>
+            </Card>
+
+            <Card>
+              <CardHeader>
+                <CardTitle>Analytics</CardTitle>
+                <CardDescription>View platform analytics</CardDescription>
+              </CardHeader>
+              <CardContent>
+                <p className="text-sm text-gray-600">
+                  Monitor platform performance and user engagement.
+                </p>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* Document Review Section */}
+          <DocumentViewer isAdmin={true} />
+        </div>
       </main>
     </div>
   );
-};
-
-export default AdminDashboard;
-
+}
